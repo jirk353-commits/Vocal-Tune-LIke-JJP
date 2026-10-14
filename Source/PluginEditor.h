@@ -11,10 +11,14 @@ using APVTS = juce::AudioProcessorValueTreeState;
 
 namespace col
 {
-    const juce::Colour bgTop    { 0xff2a2d33 };
-    const juce::Colour bgBot    { 0xff16181c };
-    const juce::Colour text     { 0xfff4f1ea };
-    const juce::Colour textDim  { 0xffc3c8cf };
+    const juce::Colour bgTop    { 0xffeef0f2 };
+    const juce::Colour bgBot    { 0xffc3c7cd };
+    const juce::Colour text     { 0xff1d1f23 };
+    const juce::Colour textDim  { 0xff4b5058 };
+    const juce::Colour screenText { 0xfff4f1ea };
+    const juce::Colour screenDim  { 0xffc3c8cf };
+    const juce::Colour red      { 0xffd8222c };
+    const juce::Colour redHi    { 0xffff5a5f };
     const juce::Colour copper   { 0xffe8935a };
     const juce::Colour mint     { 0xff3fe6c8 };
     const juce::Colour violet   { 0xffa98bff };

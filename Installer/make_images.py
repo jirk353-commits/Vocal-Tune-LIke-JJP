@@ -2,13 +2,13 @@
 import math, sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 fontpath = sys.argv[1]
-MINT, COPPER = (63, 230, 200), (232, 147, 90)
+MINT, COPPER = (216, 34, 44), (20, 20, 22)
 
 def plate(w, h):
     img = Image.new('RGBA', (w, h)); d = ImageDraw.Draw(img)
     for y in range(h):
         t = y / h
-        d.line([(0, y), (w, y)], fill=(int(44 - 22*t), int(47 - 23*t), int(53 - 25*t), 255))
+        d.line([(0, y), (w, y)], fill=(int(236 - 40*t), int(238 - 40*t), int(241 - 40*t), 255))
     weave = Image.new('RGBA', (w, h), (0, 0, 0, 0)); wd = ImageDraw.Draw(weave)
     for y in range(0, h, 6):
         for x in range(0, w, 6):
@@ -31,9 +31,9 @@ def knob(img, cx, cy, r):
         t = i / r
         c = int(110 - 85 * t)
         d.ellipse([cx - r + 0, cy - r + i * 0.0, cx + r, cy + r], outline=None)
-    d.ellipse([cx-r, cy-r, cx+r, cy+r], fill=(80, 86, 96), outline=(10, 11, 13), width=2)
+    d.ellipse([cx-r, cy-r, cx+r, cy+r], fill=(200, 204, 210), outline=(60, 64, 70), width=2)
     br = r * 0.86
-    d.ellipse([cx-br, cy-br, cx+br, cy+br], fill=(34, 37, 43))
+    d.ellipse([cx-br, cy-br, cx+br, cy+br], fill=(236, 238, 241))
     a = math.radians(135 + 190)
     p1 = (cx + math.cos(a) * br * 0.3, cy + math.sin(a) * br * 0.3); p2 = (cx + math.cos(a) * br * 0.9, cy + math.sin(a) * br * 0.9)
     d.line([p1, p2], fill=COPPER, width=max(3, int(r * 0.09)))
@@ -48,8 +48,8 @@ img = plate(W, H); knob(img, W // 2, 220, 95)
 d = ImageDraw.Draw(img)
 f1 = ImageFont.truetype(fontpath, 40); f2 = ImageFont.truetype(fontpath, 22); f3 = ImageFont.truetype(fontpath, 14)
 def c(y, s, f, col): text(d, ((W - d.textlength(s, font=f)) / 2, y), s, f, col)
-c(400, "VOCAL FEEL", f1, (255, 214, 176))
-c(458, "VOCAL MULTI-CHAIN PROCESSOR", f3, (200, 205, 212))
+c(400, "VOCAL FEEL", f1, (29, 31, 35))
+c(458, "VOCAL MULTI-CHAIN PROCESSOR", f3, (75, 80, 88))
 d.line([(60, 525), (W - 60, 525)], fill=MINT, width=2)
 c(550, "ROHIT JI", f2, MINT)
 img.convert('RGB').save('wizard-large.bmp'); img.convert('RGB').resize((164, 314), Image.LANCZOS).save('wizard-large-100.bmp')
